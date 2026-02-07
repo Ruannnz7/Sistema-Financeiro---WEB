@@ -1,0 +1,45 @@
+.app {
+  background: var(--card);
+  color: var(--text);
+  padding: 30px;
+  border-radius: 20px;
+  width: 420px;
+  max-width: 95%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.app h1 {
+  color: var(--primary);
+}
+
+/* botão dark mode */
+
+.theme-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+input,
+select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  width: 100%;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
