@@ -1,12 +1,46 @@
-function Lista({ lancamentos }) {
+function Lista({ lancamentos, onDelete }) {
   return (
-    <ul>
-      {lancamentos.map((l) => (
-        <li key={l.id}>
-          {l.descricao} — R$ {l.valor} ({l.tipo})
-        </li>
-      ))}
-    </ul>
+    <table className="tabela">
+
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Tipo</th>
+          <th>Valor</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {lancamentos.map(l => (
+          <tr key={l.id}>
+
+            <td>{l.descricao}</td>
+
+            <td>
+              <span className={`badge ${l.tipo}`}>
+                {l.tipo.toUpperCase()}
+              </span>
+            </td>
+
+            <td>
+              R$ {Number(l.valor).toFixed(2)}
+            </td>
+
+            <td>
+              <button
+                className="delete"
+                onClick={() => onDelete(l.id)}
+              >
+                🗑
+              </button>
+            </td>
+
+          </tr>
+        ))}
+      </tbody>
+
+    </table>
   );
 }
 

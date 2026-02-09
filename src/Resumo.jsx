@@ -1,22 +1,40 @@
 function Resumo({ lancamentos }) {
   const receitas = lancamentos
-    .filter((l) => l.tipo === "receita")
-    .reduce((total, l) => total + l.valor, 0);
+    .filter(l => l.tipo === "receita")
+    .reduce((acc, l) => acc + Number(l.valor), 0);
 
   const despesas = lancamentos
-    .filter((l) => l.tipo === "despesa")
-    .reduce((total, l) => total + l.valor, 0);
+    .filter(l => l.tipo === "despesa")
+    .reduce((acc, l) => acc + Number(l.valor), 0);
 
   const saldo = receitas - despesas;
 
+  const formatar = valor =>
+    valor.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL"
+    });
+
   return (
-    <div>
-      <p>Receitas: R$ {receitas}</p>
-      <p>Despesas: R$ {despesas}</p>
-      <p>Saldo: R$ {saldo}</p>
+    <div className="resumo">
+
+      <div className="card receita">
+        <h4>Receitas</h4>
+        <p>{formatar(receitas)}</p>
+      </div>
+
+      <div className="card despesa">
+        <h4>Despesas</h4>
+        <p>{formatar(despesas)}</p>
+      </div>
+
+      <div className="card saldo">
+        <h4>Saldo</h4>
+        <p>{formatar(saldo)}</p>
+      </div>
+
     </div>
   );
 }
 
 export default Resumo;
-
