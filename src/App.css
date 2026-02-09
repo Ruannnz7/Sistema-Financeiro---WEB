@@ -1,26 +1,48 @@
-/* Container principal */
+
 
 .app {
   width: 95%;
   max-width: 1400px;
   margin: 30px auto;
-  background: #f8f8f8;
+  background: var(--card);
   border-radius: 10px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
   overflow: hidden;
+  color: var(--text);
+  
 }
 
-/* Header */
 
 .header {
-  background: black;
+  background: var(--header);
   color: white;
   padding: 25px;
   font-size: 24px;
   font-weight: bold;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Cards */
+
+
+.theme-btn {
+  background: #3fa1f1;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: bold;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.theme-btn:hover {
+  transform: scale(1.05);
+}
+
+
 
 .resumo {
   display: grid;
@@ -40,7 +62,7 @@
 .card.despesa { background: #555; }
 .card.saldo { background: black; }
 
-/* Formulário */
+
 
 .formulario {
   display: grid;
@@ -54,6 +76,9 @@
 .formulario button {
   padding: 12px;
   font-size: 14px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
 }
 
 .formulario button {
@@ -61,19 +86,20 @@
   border: none;
   cursor: pointer;
   font-weight: bold;
+  color: white;
 }
 
-/* Tabela */
+
 
 .tabela {
   width: calc(100% - 40px);
   margin: 0 20px 20px;
-  background: white;
+  background: var(--card);
   border-collapse: collapse;
 }
 
 .tabela th {
-  background: black;
+  background: var(--header);
   color: white;
   padding: 12px;
   text-align: left;
@@ -81,10 +107,9 @@
 
 .tabela td {
   padding: 12px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border);
 }
 
-/* Badge */
 
 .badge {
   padding: 6px 12px;
@@ -97,30 +122,7 @@
 .badge.receita { background: rgb(36, 187, 233); }
 .badge.despesa { background: black; }
 
-/* Delete */
 
-.delete {
-  background: red;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-/* Responsivo */
-
-@media (max-width: 900px) {
-  .resumo {
-    grid-template-columns: 1fr;
-  }
-
-  .formulario {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Ações */
 
 .acoes button {
   margin-right: 5px;
@@ -135,7 +137,16 @@
   border-radius: 5px;
 }
 
-/* Modal */
+.delete {
+  background: red;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
 
 .modal-overlay {
   position: fixed;
@@ -148,7 +159,8 @@
 }
 
 .modal {
-  background: white;
+  background: var(--card);
+  color: var(--text);
   padding: 25px;
   border-radius: 10px;
   width: 350px;
@@ -164,6 +176,9 @@
 .modal input,
 .modal select {
   padding: 10px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
 }
 
 .modal-botoes {
@@ -177,7 +192,19 @@
   cursor: pointer;
 }
 
-/* Animações */
+
+
+@media (max-width: 900px) {
+  .resumo {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 
 .fade-in {
   animation: fadeRow 0.4s ease;

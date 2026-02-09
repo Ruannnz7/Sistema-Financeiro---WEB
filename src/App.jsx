@@ -7,13 +7,13 @@ import "./App.css";
 function App() {
   const [lancamentos, setLancamentos] = useState([]);
 
-  
+  // Carregar do localStorage
   useEffect(() => {
     const dados = localStorage.getItem("lancamentos");
     if (dados) setLancamentos(JSON.parse(dados));
   }, []);
 
-  
+  // Salvar no localStorage
   useEffect(() => {
     localStorage.setItem("lancamentos", JSON.stringify(lancamentos));
   }, [lancamentos]);
@@ -47,5 +47,3 @@ function App() {
 }
 
 export default App;
-
-
