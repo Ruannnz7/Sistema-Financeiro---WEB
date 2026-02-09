@@ -1,45 +1,121 @@
+/* Container principal */
+
 .app {
-  background: var(--card);
-  color: var(--text);
-  padding: 30px;
-  border-radius: 20px;
-  width: 420px;
-  max-width: 95%;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  transition: 0.3s;
+  width: 95%;
+  max-width: 1400px;
+  margin: 30px auto;
+  background: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  overflow: hidden;
 }
 
-.app h1 {
-  color: var(--primary);
-}
+/* Header */
 
-/* botão dark mode */
-
-.theme-btn {
-  background: var(--primary);
+.header {
+  background: black;
   color: white;
-  border: none;
-  padding: 8px 12px;
+  padding: 25px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Cards */
+
+.resumo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  padding: 25px;
   border-radius: 8px;
-  cursor: pointer;
-  margin-bottom: 10px;
+  color: white;
+  font-size: 18px;
 }
 
-input,
-select {
+.card.receita { background: #3fa1f1; }
+.card.despesa { background: #555; }
+.card.saldo { background: black; }
+
+/* Formulário */
+
+.formulario {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 0 20px 20px;
+}
+
+.formulario input,
+.formulario select,
+.formulario button {
   padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  outline: none;
-  width: 100%;
+  font-size: 14px;
 }
 
-button {
-  background: var(--primary);
+.formulario button {
+  background: #3fa1f1;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Tabela */
+
+.tabela {
+  width: calc(100% - 40px);
+  margin: 0 20px 20px;
+  background: white;
+  border-collapse: collapse;
+}
+
+.tabela th {
+  background: black;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.tabela td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Badge */
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+}
+
+.badge.receita { background: rgb(36, 187, 233); }
+.badge.despesa { background: black; }
+
+/* Delete */
+
+.delete {
+  background: red;
   color: white;
   border: none;
-  padding: 12px;
-  border-radius: 10px;
+  padding: 6px 12px;
   cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Responsivo */
+
+@media (max-width: 900px) {
+  .resumo {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario {
+    grid-template-columns: 1fr;
+  }
 }
