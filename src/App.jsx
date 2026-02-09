@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Formulario from "./Formulario";
 import Lista from "./Lista";
 import Resumo from "./Resumo";
@@ -7,38 +7,45 @@ import "./App.css";
 function App() {
   const [lancamentos, setLancamentos] = useState([]);
 
-  // 🌙 Dark mode
-  const [dark, setDark] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
-
+  
   useEffect(() => {
-    document.body.classList.toggle("dark", dark);
-    localStorage.setItem("theme", dark ? "dark" : "light");
-  }, [dark]);
+    const dados = localStorage.getItem("lancamentos");
+    if (dados) setLancamentos(JSON.parse(dados));
+  }, []);
+
+  
+  useEffect(() => {
+    localStorage.setItem("lancamentos", JSON.stringify(lancamentos));
+  }, [lancamentos]);
 
   function adicionarLancamento(lancamento) {
     setLancamentos([...lancamentos, lancamento]);
   }
 
+  function removerLancamento(id) {
+    setLancamentos(lancamentos.filter(l => l.id !== id));
+  }
+
   return (
     <div className="app">
-      {/* Botão de tema */}
-      <button
-        className="theme-btn"
-        onClick={() => setDark(!dark)}
-      >
-        {dark ? "☀️ Light" : "🌙 Dark"}
-      </button>
 
-      <h1>Sistema Financeiro</h1>
+      <header className="header">
+        <h2>Controle Financeiro</h2>
+      </header>
 
       <Resumo lancamentos={lancamentos} />
+
       <Formulario onAdd={adicionarLancamento} />
-      <Lista lancamentos={lancamentos} />
+
+      <Lista
+        lancamentos={lancamentos}
+        onDelete={removerLancamento}
+      />
+
     </div>
   );
 }
 
 export default App;
+
 
