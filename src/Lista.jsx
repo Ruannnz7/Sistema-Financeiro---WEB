@@ -1,4 +1,4 @@
-function Lista({ lancamentos, onDelete }) {
+function Lista({ lancamentos, onDelete, onEdit }) {
   return (
     <table className="tabela">
 
@@ -13,7 +13,7 @@ function Lista({ lancamentos, onDelete }) {
 
       <tbody>
         {lancamentos.map(l => (
-          <tr key={l.id}>
+          <tr key={l.id} className="fade-in">
 
             <td>{l.descricao}</td>
 
@@ -23,17 +23,24 @@ function Lista({ lancamentos, onDelete }) {
               </span>
             </td>
 
-            <td>
-              R$ {Number(l.valor).toFixed(2)}
-            </td>
+            <td>R$ {l.valor.toFixed(2)}</td>
 
-            <td>
+            <td className="acoes">
+
+              <button
+                className="edit"
+                onClick={() => onEdit(l)}
+              >
+                ✏️
+              </button>
+
               <button
                 className="delete"
                 onClick={() => onDelete(l.id)}
               >
                 🗑
               </button>
+
             </td>
 
           </tr>
