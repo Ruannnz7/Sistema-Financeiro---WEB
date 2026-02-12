@@ -1,3 +1,11 @@
+.header {
+  background: #020305;
+  color: white;
+  padding: 25px;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 10px 10px 0 0;
+}
 
 
 .app {
@@ -11,21 +19,6 @@
   color: var(--text);
   
 }
-
-
-.header {
-  background: var(--header);
-  color: white;
-  padding: 25px;
-  font-size: 24px;
-  font-weight: bold;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-
 
 .theme-btn {
   background: #3fa1f1;
